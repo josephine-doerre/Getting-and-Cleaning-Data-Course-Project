@@ -9,6 +9,7 @@ Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ort
 A Public Domain Dataset for Human Activity Recognition Using Smartphones. 
 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. 
 Bruges, Belgium 24-26 April 2013.
+
 activityrecognition@smartlab.ws
 www.smartlab.ws
 
@@ -18,6 +19,25 @@ www.smartlab.ws
 - wearing a smartphone (Samsung Galaxy S II) on the waist
 - the smartphone kept track of several movement parameters: 3-axial linear acceleration and 3-axial angular velocity
 - the dataset was randomly partitioned into 30 % test data and 70 % train data
+
+## Processing steps from raw to tidy data
+Originally there were several raw text-files: 'features.txt'; 'train/X_train.txt': Training set; 'train/y_train.txt': Training labels; 'test/X_test.txt': Test set; 'test/y_test.txt': Test labels. 
+- load required packages
+- read the txt-files into R Studio with read.table("path", col.names = "...")
+- get an overview of what the data look like with 'dim()' and 'str()'
+- the 'feature.txt' contain the names of the 561 columns; transpose them and save as 'column_names'
+- combine the 'column_names' and test and train data sets with the 'colnames'-command
+- join the participants-ids, the activity-labels to the two data sets 'test' and 'train' into 'testdata' and 'traindata' (labels the data set with descriptive variable names, step 4 of the assignment)
+- follow the assignment tasks: 1. Merge the training and the test sets to create one data set
+- merging the two data-sets with the 'bind_rows'-command: get the new table 'all_data'
+- convert the new data set into a tibble class with 'tbl_df'
+- solve the second and third assignment task with a pipline sequence in R Studio
+- Extract mean and standard deviation for each measurement: with the 'contains' command within 'select'
+- add descriptive activity names: with the 'mutate' function
+- relocate the label column to the beginning of the table
+- fifth step of the assignment: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject: do this in a pipline with 'group_by' and the 'across' command within 'summarise'
+- save this tidy dataset with 88 columns and 180 rows as 'tidy_data'
+- save the final data set as a text-file with write.table(..., row.name=FALSE)
 
 # Variables
 
@@ -38,9 +58,6 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 
 These signals were used to estimate variables of the feature vector for each pattern:  '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 For detailed informations visit the publishers website: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#
-
-
-## Trans
 
 ## List oft all accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ in the tidy_data-set
 
