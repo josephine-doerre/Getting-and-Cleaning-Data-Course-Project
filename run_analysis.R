@@ -2,15 +2,16 @@
 # load required packages
 library(dplyr)
 library(tidyr)
+wd <- getwd()
 ##################################################################
 # get the raw data 
 ##################################################################
-id_test <- read.table("/Users/josi 1 2/Desktop/Modul3/Getting-and-Cleaning-Data-Course-Project/test/subject_test.txt", col.names = "id")
-id_train <- read.table("/Users/josi 1 2/Desktop/Modul3/Getting-and-Cleaning-Data-Course-Project/train/subject_train.txt", col.names = "id")
-y_test <- read.table("/Users/josi 1 2/Desktop/Modul3/Getting-and-Cleaning-Data-Course-Project/test/y_test.txt", col.names = "labels")
-X_test <- read.table("/Users/josi 1 2/Desktop/Modul3/Getting-and-Cleaning-Data-Course-Project/test/X_test.txt")
-y_train <- read.table("/Users/josi 1 2/Desktop/Modul3/Getting-and-Cleaning-Data-Course-Project/train/y_train.txt", col.names = "labels")
-X_train <- read.table("/Users/josi 1 2/Desktop/Modul3/Getting-and-Cleaning-Data-Course-Project/train/X_train.txt")
+id_test <- read.table("subject_test.txt", col.names = "id")
+id_train <- read.table("subject_train.txt", col.names = "id")
+y_test <- read.table("y_test.txt", col.names = "labels")
+X_test <- read.table("X_test.txt")
+y_train <- read.table("y_train.txt", col.names = "labels")
+X_train <- read.table("X_train.txt")
 # check out dim() and str()
 
 # features are the names of the 561 columns
